@@ -36,13 +36,17 @@ namespace Mod09_01.Controllers
         //GET: Home/JsonData/123&name=John
         public ActionResult JsonData(string id, string name)
         {
-            var data = new
+            if (Request.IsAjaxRequest())
             {
-                empid = id,
-                EmpName = name,
-                Age = DateTime.Now.Millisecond
-            };
-            return Json(data, JsonRequestBehavior.AllowGet);
+                var data = new
+                {
+                    empid = id,
+                    EmpName = name,
+                    Age = DateTime.Now.Millisecond
+                };
+                return Json(data, JsonRequestBehavior.AllowGet);
+            }
+            return View();
         }
 
     }
