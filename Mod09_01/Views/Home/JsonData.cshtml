@@ -18,7 +18,9 @@
                     url: "/Home/JsonData",
                     data: "id=123&name=Mary",
                     success: function (data) {
+                        //按F12看console
                         console.log(data);
+                        //資料展示的方式
                         $("#result").text(data.empId + "--" + data.EmpName + "--" + data.Age);
                     }
                 });
