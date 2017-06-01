@@ -32,6 +32,18 @@ namespace Mod09_01.Controllers
             return View();
         }
 
+        //GET: Home/JsonData?id=123&name=John
+        //GET: Home/JsonData/123&name=John
+        public ActionResult JsonData(string id, string name)
+        {
+            var data = new
+            {
+                empid = id,
+                EmpName = name,
+                Age = DateTime.Now.Millisecond
+            };
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
 
     }
 }
